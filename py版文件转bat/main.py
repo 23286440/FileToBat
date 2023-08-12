@@ -39,6 +39,7 @@ win.geometry("400x200")
 
 b1=tkinter.Button(win,text="选择")
 b1.bind("<Button-1>",main)
+b1.config(width=10, height=2)
 b1.pack()
 win.mainloop()
 
