@@ -6,9 +6,9 @@ def main(n):
     
     
     file_path = filedialog.askopenfilename(title="要选择什么文件")
-    bat_path = filedialog.asksaveasfilename(title="bat要保存在哪里",filetypes=(("Batch files", "*.bat"), ("All files", "*.*")))
+    bat_path = filedialog.asksaveasfilename(title="bat要保存在哪里",filetypes=(("Batch files", "*.bat"),))
     print(file_path,bat_path,type(file_path))
-
+    bat_path=bat_path+".bat"
     import base64
 
     # 读取文件并将其转换为Base64编码
@@ -31,7 +31,7 @@ exit
     # 将Base64编码写入另一个文件
     with open(bat_path, 'w') as file:
         file.write(result)
-
+    print("完成")
 
 win=tkinter.Tk()
 win.title("python版文件转bat")
