@@ -28,7 +28,7 @@ int main() {
 
     printf("请输入bat文件保存位置: ");
     scanf("%s", bat_path);
-  
+    
 
     sprintf(command, "echo @echo off>%s", bat_path);
     system(command);
@@ -49,6 +49,7 @@ int main() {
 
     const char* fileName = getFileName(filePath);
     printf("文件名%s；",fileName);
+    fileName="result";
     sprintf(command, "echo del /F %s >>%s", fileName,bat_path);
     system(command);    
 
@@ -60,6 +61,10 @@ int main() {
     system(command);  
     sprintf(command, "echo exit >>%s", bat_path);
     system(command);  
+    printf("因为各种问题，无法根据原文件名进行适应，bat运行后会到result文件");
+
+    sprintf(command, "del %s.temp", bat_path);
+    system(command);
 
 
 
