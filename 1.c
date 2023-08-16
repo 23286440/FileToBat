@@ -33,33 +33,32 @@ int main() {
     sprintf(command, "echo @echo off>%s", bat_path);
     system(command);
 
-    sprintf(command, "echo goto CmdCode>%s", bat_path);
+    sprintf(command, "echo goto CmdCode>>%s", bat_path);
     system(command);
 
     sprintf(command, "certutil -encode %s %s.temp", file_path,bat_path);
     system(command);
 
-    sprintf(command, "copy %s+%s.temp=%s", bat_path,bat_path);
+    sprintf(command, "copy %s+%s.temp %s", bat_path,bat_path,bat_path);
     system(command);
 
-    sprintf(command, "echo :CmdCode>%s", bat_path);
+    sprintf(command, "echo :CmdCode>>%s", bat_path);
     system(command);
 
-    sprintf(command, "echo :CmdCode>%s", bat_path);
-    system(command);
 
 
     const char* fileName = getFileName(filePath);
-    sprintf(command, "echo del /F %s >%s", fileName,bat_path);
+    printf("ÎÄ¼þÃû%s£»",fileName);
+    sprintf(command, "echo del /F %s >>%s", fileName,bat_path);
     system(command);    
 
-    sprintf(command, "echo certutil -decode %%0 %s >nul>%s", fileName,bat_path);
+    sprintf(command, "echo certutil -decode %%0 %s >nul>>%s", fileName,bat_path);
     system(command);  
 
 
-    sprintf(command, "echo start /'/' %s  >%s", fileName,bat_path);
+    sprintf(command, "echo start /'/' %s  >>%s", fileName,bat_path);
     system(command);  
-    sprintf(command, "echo exit >%s", bat_path);
+    sprintf(command, "echo exit >>%s", bat_path);
     system(command);  
 
 
